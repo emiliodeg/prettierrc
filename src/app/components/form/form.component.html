@@ -1,0 +1,63 @@
+<h2 class="p-3">1. Setup all the below parameters</h2>
+
+<ul class="list-group list-group-flush" [formGroup]="form">
+  <li *ngFor="let control of form.controls | keyvalue" class="list-group-item">
+    <ng-container [ngSwitch]="schema[control.key].type">
+      <ng-container *ngSwitchCase="'boolean'">
+        <div class="form-check form-switch">
+          <label [attr.for]="control.key" class="form-check-label">{{ control.key }}</label>
+          <input
+            [attr.id]="control.key"
+            type="checkbox"
+            role="switch"
+            [formControlName]="control.key"
+            class="form-check-input"
+          />
+          <div class="form-text">{{ schema[control.key].description }}</div>
+        </div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'radio'">
+        <p>{{ control.key }}</p>
+        <div *ngFor="let option of schema[control.key].options | keyvalue" class="mb-1">
+          <input
+            type="radio"
+            class="btn-check"
+            [attr.id]="control.key + option.key"
+            [formControlName]="control.key"
+            [value]="option.key"
+          />
+          <label class="btn btn-outline-primary" [attr.for]="control.key + option.key">
+            <strong>{{ option.key }}:</strong> {{ option.value }}
+          </label>
+        </div>
+        <div class="form-text">{{ schema[control.key].description }}</div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'integer'">
+        <label [attr.for]="control.key" class="form-label">{{ control.key }}</label>
+        <input [attr.id]="control.key" type="number" step="1" [formControlName]="control.key" class="form-control" />
+        <div class="form-text">{{ schema[control.key].description }}</div>
+      </ng-container>
+
+      <ng-container *ngSwitchCase="'select'">
+        <label [attr.for]="control.key" class="form-label">{{ control.key }}</label>
+        <select [attr.id]="control.key" [formControlName]="control.key" class="form-control">
+          <option value=""></option>
+          <ng-container *ngFor="let oo of schema[control.key].options | keyvalue">
+            <option [value]="oo.key">
+              {{ oo.value }}
+            </option>
+          </ng-container>
+        </select>
+        <div class="form-text">{{ schema[control.key].description }}</div>
+      </ng-container>
+
+      <ng-container *ngSwitchDefault>
+        <label [attr.for]="control.key" class="form-label">{{ control.key }}</label>
+        <input [attr.id]="control.key" [formControlName]="control.key" class="form-control" />
+        <div class="form-text">{{ schema[control.key].description }}</div>
+      </ng-container>
+    </ng-container>
+  </li>
+</ul>

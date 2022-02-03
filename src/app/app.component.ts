@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'prettierrc';
+  constructor() {
+    console.info('%cHi 😊 what are you looking for?', 'color: blue; font-size: 20px');
+  }
 }

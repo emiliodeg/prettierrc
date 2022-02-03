@@ -1,0 +1,12 @@
+<div class="wrap h-100 p-3">
+  <h2>2. Your current <code>.prettierrc</code> file is:</h2>
+
+  <div class="sticky-top">
+    <pre>{{ options | json }}</pre>
+
+    <p class="text-info" *ngIf="isDefaultConfiguration">
+      Current configuration is equal to default, so you could avoid use this file configuration or just use an empty
+      object like that.
+    </p>
+  </div>
+</div>
