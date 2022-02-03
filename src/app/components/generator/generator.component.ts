@@ -4,8 +4,7 @@ import { IObject, IProperty, SchemaService } from 'src/app/services/schema.servi
 
 @Component({
   selector: 'app-generator',
-  templateUrl: './generator.component.html',
-  styleUrls: ['./generator.component.scss']
+  templateUrl: './generator.component.html'
 })
 export class GeneratorComponent implements OnInit {
   public options: IObject = {};

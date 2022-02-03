@@ -5,8 +5,7 @@ import { IProperty, SchemaService } from 'src/app/services/schema.service';
 
 @Component({
   selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  templateUrl: './form.component.html'
 })
 export class FormComponent implements OnInit, OnDestroy {
   public form: FormGroup = new FormGroup({});

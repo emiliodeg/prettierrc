@@ -27,7 +27,7 @@ export class SchemaService {
   constructor(private http: HttpClient) {}
 
   public loadSchema(): any {
-    return this.http.get('http://json.schemastore.org/prettierrc').pipe(
+    return this.http.get('https://json.schemastore.org/prettierrc').pipe(
       tap((response: any) => {
         this.processProperties(response?.definitions?.optionsDefinition?.properties);
       })

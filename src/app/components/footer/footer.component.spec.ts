@@ -1,4 +1,6 @@
+import { DebugElement } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 
 import { FooterComponent } from './footer.component';
 
@@ -8,9 +10,8 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ]
-    })
-    .compileComponents();
+      declarations: [FooterComponent]
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -21,5 +22,11 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain a link to github', () => {
+    const a: DebugElement = fixture.debugElement.query(By.css('a'));
+
+    expect(a.attributes['href']).toContain('github.com/emiliodeg');
   });
 });
