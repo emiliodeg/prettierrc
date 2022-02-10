@@ -15,7 +15,7 @@ export class FormComponent implements OnInit, OnDestroy {
   constructor(private schemaSrv: SchemaService) {}
 
   ngOnInit() {
-    const properties = this.schemaSrv.schema$
+    this.schemaSrv.schema$
       .pipe(
         tap((response) => this.initForm(response)),
         takeUntil(this.unsubscribe$)
