@@ -4,9 +4,11 @@
   <div class="sticky-top">
     <pre>{{ options | json }}</pre>
 
-    <p class="text-info" *ngIf="isDefaultConfiguration">
+    <p class="alert alert-info" *ngIf="isDefaultConfiguration">
       Current configuration is equal to default, so you could avoid use this file configuration or just use an empty
       object like that.
     </p>
+
+    <app-download [options]="options"></app-download>
   </div>
 </div>

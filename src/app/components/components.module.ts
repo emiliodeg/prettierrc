@@ -6,9 +6,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
+import { DownloadComponent } from './download/download.component';
 
 @NgModule({
-  declarations: [FormComponent, GeneratorComponent, AboutComponent, FooterComponent, HeaderComponent],
+  declarations: [FormComponent, GeneratorComponent, AboutComponent, FooterComponent, HeaderComponent, DownloadComponent],
   exports: [FormComponent, GeneratorComponent, AboutComponent, FooterComponent, HeaderComponent],
   imports: [CommonModule, ReactiveFormsModule]
 })
