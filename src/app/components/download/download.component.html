@@ -3,13 +3,21 @@
   <button (click)="copy()" class="btn btn-outline-secondary">Copy to clipboard</button>
 </div>
 
-<div *ngIf="isDownloaded" class="alert alert-info">
-  Remember rename your file to <code>.prettierrc</code> and store it in your project root folder.
-</div>
+<ng-container *ngIf="isDownloaded || isCopied">
+  <div class="alert alert-success" role="alert">
+    <h4 class="alert-heading">Well done!</h4>
+    <p>Now hands on and start coding well formatted! (⌐■_■)</p>
 
-<div *ngIf="isCopied" class="alert alert-info">
-  Your prettierrc json object is in your clipboard. Now, create a new file called <code>.prettierrc</code> in your
-  project root folder and then paste as content of it.
-</div>
+    <p *ngIf="isDownloaded">
+      Remember rename your file to <code>.prettierrc</code> and store it in your project root folder.
+    </p>
 
-<h3 *ngIf="isDownloaded || isCopied">3. Enjoy your code well formatted! (⌐■_■)</h3>
+    <p *ngIf="isCopied">
+      Your prettierrc json object is in your clipboard. Now, create a new file called <code>.prettierrc</code> in your
+      project root folder and then paste as content of it.
+    </p>
+
+    <hr />
+    <p class="mb-0">Tip: Run prettier on that file! <code>prettier .prettierrc --write</code></p>
+  </div>
+</ng-container>
